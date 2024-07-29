@@ -1,0 +1,59 @@
+{
+  "evalConfig": {
+    "modelSpecs": [
+      {
+        "name": "candidate",
+        "labelKey": "quality"
+      },
+      {
+        "name": "baseline",
+        "labelKey": "quality",
+        "isBaseline": true
+      }
+    ],
+    "slicingSpecs": [
+      {}
+    ],
+    "metricsSpecs": [
+      {
+        "metrics": [
+          {
+            "className": "MeanAbsoluteError",
+            "threshold": {
+              "valueThreshold": {
+                "upperBound": 0.6
+              }
+            }
+          },
+          {
+            "className": "MeanSquaredError",
+            "threshold": {
+              "valueThreshold": {
+                "upperBound": 0.6
+              }
+            }
+          },
+          {
+            "className": "RootMeanSquaredError",
+            "threshold": {
+              "valueThreshold": {
+                "upperBound": 0.8
+              }
+            }
+          }
+        ],
+        "modelNames": [
+          "candidate",
+          "baseline"
+        ]
+      }
+    ]
+  },
+  "version": "0.42.0",
+  "dataLocation": "<user provided PCollection>",
+  "fileFormat": "<unknown>",
+  "modelLocations": {
+    "candidate": "output\\red-wine-pipeline\\Trainer\\model\\18\\Format-Serving",
+    "baseline": "output\\red-wine-pipeline\\Trainer\\model\\8\\Format-Serving"
+  }
+}
